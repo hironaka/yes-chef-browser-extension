@@ -19,5 +19,11 @@
   "action": {
     "default_title": "Yes Chef",
     "default_popup": "popup.html"
+  },
+  "externally_connectable": {
+    "matches": [
+      "*://localhost/*",
+      "*://yeschef.ai/*"
+    ]
   }
 }
