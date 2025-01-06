@@ -12,6 +12,9 @@ global.chrome = {
     onMessage: {
       addListener: jest.fn()
     },
+    onMessageExternal: {
+      addListener: jest.fn()
+    },
     lastError: null
   },
   storage: {

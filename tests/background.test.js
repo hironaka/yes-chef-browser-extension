@@ -16,6 +16,9 @@ describe('background.js - Unit Tests', () => {
             backgroundMessageHandler = handler;
           })
         },
+        onMessageExternal: {
+          addListener: jest.fn()
+        },
         lastError: null
       },
       storage: {
