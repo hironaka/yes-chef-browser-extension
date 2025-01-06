@@ -45,23 +45,10 @@
 
     console.log("Recipe found:", recipe);
 
-    // Send to background script.
+    // Send to background script
     chrome.runtime.sendMessage({
       type: "RECIPE_DATA",
       payload: recipe
-    });
-  } else {
-    // Send cached recipe data to yes chef web app.
-    chrome.runtime.sendMessage({ type: "GET_RECIPE" }, (response) => {
-      if (response && response.recipe) {
-        window.postMessage(
-          {
-            type: 'RECIPE_DATA',
-            data: response.recipe
-          },
-          '*'
-        );
-      }
     });
   }
 
