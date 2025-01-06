@@ -2,18 +2,21 @@
   "name": "Yes Chef",
   "version": "1.0",
   "manifest_version": 3,
-  "description": "Scrapes recipe data from the current webpage.",
+  "description": "Scrapes recipe data from the current webpage, with color-coded logs and a debug panel.",
   "permissions": [
     "activeTab",
-    "scripting"
+    "scripting",
+    "storage"
   ],
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "background.js",
+    "type": "module"
   },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["contentScript.js"]
+      "js": ["contentScript.js"],
+      "type": "module"
     }
   ],
   "action": {

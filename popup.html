@@ -1,15 +1,104 @@
-<!-- popup.html -->
 <!DOCTYPE html>
 <html>
   <head>
     <title>Recipe Scraper</title>
     <style>
-      body { font-family: sans-serif; margin: 1em; }
+      body {
+        font-family: system-ui, -apple-system, sans-serif;
+        margin: 1em;
+        width: 500px;
+        max-width: 100%;
+      }
+      
+      #recipe-info {
+        white-space: pre-wrap;
+        font-family: monospace;
+        background: #f8f9fa;
+        padding: 1em;
+        border-radius: 4px;
+        border: 1px solid #dee2e6;
+      }
+      
+      #debug-logs {
+        width: 100%;
+        height: 300px;
+        font-family: monospace;
+        display: none;
+        margin-top: 1em;
+        background: #212529;
+        color: #f8f9fa;
+        border: none;
+        padding: 1em;
+        border-radius: 4px;
+      }
+      
+      #debug-controls {
+        margin-top: 1em;
+        display: flex;
+        gap: 0.5em;
+      }
+      
+      button {
+        padding: 0.5em 1em;
+        border: none;
+        border-radius: 4px;
+        background: #0d6efd;
+        color: white;
+        cursor: pointer;
+      }
+      
+      button:hover {
+        background: #0b5ed7;
+      }
+      
+      .log-entry {
+        margin-bottom: 0.5em;
+        padding: 0.25em 0;
+      }
+
+      .log-timestamp {
+        color: #6c757d;
+        font-size: 0.9em;
+      }
+
+      .log-level {
+        padding: 0.2em 0.4em;
+        border-radius: 3px;
+        margin: 0 0.5em;
+        font-size: 0.9em;
+      }
+
+      .log-level-DEBUG { background: #6c757d; color: white; }
+      .log-level-INFO { background: #0d6efd; color: white; }
+      .log-level-WARN { background: #ffc107; color: black; }
+      .log-level-ERROR { background: #dc3545; color: white; }
+
+      .log-message {
+        margin-left: 0.5em;
+      }
+
+      .log-message pre {
+        margin: 0.5em 0 0.5em 1.5em;
+        padding: 0.5em;
+        background: #2c3338;
+        border-radius: 3px;
+      }
     </style>
   </head>
   <body>
     <h1>Recipe Scraper</h1>
+    <!-- This div will display the most recently found recipe data. -->
     <div id="recipe-info">No recipe detected yet.</div>
+
+    <!-- Debug panel controls -->
+    <div id="debug-controls">
+      <button id="toggle-debug">Toggle Debug Logs</button>
+      <button id="refresh-logs">Refresh Logs</button>
+    </div>
+
+    <!-- A textarea that displays logs (hidden by default). -->
+    <textarea id="debug-logs" readonly></textarea>
+
     <script src="popup.js"></script>
   </body>
 </html>

@@ -1,0 +1,31 @@
+{
+  "name": "yes-chef-browser-extension",
+  "version": "1.0.0",
+  "description": "Browser extension for extracting recipes from JSON-LD",
+  "main": "background.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.7",
+    "@babel/preset-env": "^7.23.7",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "setupFiles": ["./jest.setup.js"],
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "moduleFileExtensions": ["js", "json", "jsx", "node"],
+    "transformIgnorePatterns": [
+      "/node_modules/(?!(@babel/runtime)/)"
+    ],
+    "testMatch": [
+      "**/tests/**/*.test.js"
+    ]
+  }
+}
