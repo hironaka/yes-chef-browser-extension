@@ -55,3 +55,9 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   sendResponse({ error: 'Unknown message type' });
   return true;
 });
+
+chrome.runtime.onMessageExternal.addListener((request, sender, sendResponse) => {
+  if (request.action === 'GET_RECIPE') {
+    sendResponse({ recipe: lastRecipeData });
+  }
+});
