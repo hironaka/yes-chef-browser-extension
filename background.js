@@ -14,3 +14,9 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     sendResponse({ recipe: lastRecipeData });
   }
 });
+
+chrome.runtime.onMessageExternal.addListener((request, sender, sendResponse) => {
+  if (request.action === 'GET_RECIPE') {
+    sendResponse({ recipe: lastRecipeData });
+  }
+});
