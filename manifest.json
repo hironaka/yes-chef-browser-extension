@@ -1,0 +1,23 @@
+{
+  "name": "Yes Chef",
+  "version": "1.0",
+  "manifest_version": 3,
+  "description": "Scrapes recipe data from the current webpage.",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "action": {
+    "default_title": "Yes Chef",
+    "default_popup": "popup.html"
+  }
+}
